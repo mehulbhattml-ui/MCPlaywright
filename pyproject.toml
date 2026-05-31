@@ -1,0 +1,33 @@
+[project]
+name = "fastmcp-example"
+version = "0.1.0"
+description = "Minimal FastMCP-style Python server with a single tool endpoint"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.23.0",
+    "httpx>=0.28.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-bdd>=5.0",
+    "pytest-playwright>=0.5.0",
+    "playwright>=1.40.0",
+    "allure-pytest>=2.9.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests*"]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

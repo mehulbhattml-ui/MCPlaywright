@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+fastmcp/__init__.py
+fastmcp/schemas.py
+fastmcp/server.py
+fastmcp/tools/__init__.py
+fastmcp/tools/echo_tool.py
+fastmcp_example.egg-info/PKG-INFO
+fastmcp_example.egg-info/SOURCES.txt
+fastmcp_example.egg-info/dependency_links.txt
+fastmcp_example.egg-info/requires.txt
+fastmcp_example.egg-info/top_level.txt
+tests/test_playwright.py
+tests/test_tool.py
+tools/echo_tool.py

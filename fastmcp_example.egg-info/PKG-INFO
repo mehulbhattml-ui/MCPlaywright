@@ -1,0 +1,72 @@
+Metadata-Version: 2.4
+Name: fastmcp-example
+Version: 0.1.0
+Summary: Minimal FastMCP-style Python server with a single tool endpoint
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.109.0
+Requires-Dist: uvicorn[standard]>=0.23.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: pytest-bdd>=5.0; extra == "dev"
+Requires-Dist: pytest-playwright>=0.5.0; extra == "dev"
+Requires-Dist: playwright>=1.40.0; extra == "dev"
+Requires-Dist: httpx>=0.28.0; extra == "dev"
+
+# FastMCP Example
+
+A minimal Python FastMCP-style server with a single tool endpoint and Playwright Page Object Model (POM) tests.
+
+## Project structure
+
+- `fastmcp/` - package implementing the FastMCP server and tool registry
+- `fastmcp/tools/` - individual tool implementations
+- `tests/` - unit tests, browser tests, and BDD scenarios
+- `tests/pages/` - Playwright page object classes
+- `tests/features/` - BDD feature files
+- `tests/steps/` - BDD step definitions
+- `tests/utils/` - shared browser and server helpers
+
+## Setup
+
+1. Install Python 3.10+ and ensure it is on your PATH.
+2. From the project root:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -e .[dev]
+python -m playwright install chromium
+```
+
+## Run the server
+
+```bash
+python server.py
+```
+
+Open `http://127.0.0.1:8000` to verify the serve running.
+
+## FastMCP endpoints
+
+- `GET /` - server status
+- `GET /tools` - registered tool metadata
+- `POST /tool/{tool_name}` - invoke a tool
+
+Example request:
+
+```bash
+curl -X POST http://127.0.0.1:8000/tool/echo \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"hello"}'
+```
+
+## Tests
+
+```bash
+pytest
+```
+
+## Page Object Model
+
+The browser tests use a dedicated POM class at `tests/pages/root_page.py`.
+That keeps UI interactions separate from test assertions and makes the suite easier to extend.

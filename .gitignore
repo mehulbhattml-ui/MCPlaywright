@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.pytest_cache/
+.playwright/
+.idea/
+.vscode/
+.DS_Store
+
+# Python virtual environments
+venv/
+ENV/
+env.bak/
+
+# Local VS Code settings
+.vscode/
+
+# Allure report output
+allure-results/
+allure-report/
