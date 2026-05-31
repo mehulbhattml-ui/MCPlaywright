@@ -8,7 +8,7 @@ from fastmcp import app
 
 
 class FastMCPServer:
-    def __init__(self, host: str = "127.0.0.1", port: int = 8001):
+    def __init__(self, host: str = "0.0.0.0", port: int = 8001):
         self.host = host
         self.port = port
         self.config = uvicorn.Config(app, host=self.host, port=self.port, log_level="warning", lifespan="off")
@@ -17,7 +17,8 @@ class FastMCPServer:
 
     def start(self, timeout: float = 10.0) -> None:
         self.thread.start()
-        url = f"http://{self.host}:{self.port}"
+        # Use localhost for health check regardless of binding address
+        url = f"http://localhost:{self.port}"
         deadline = time.time() + timeout
 
         while time.time() < deadline:
