@@ -4,7 +4,7 @@ from playwright.sync_api import Page
 
 
 class BasePage:
-    def __init__(self, page: Page, host: str = "http://127.0.0.1:8001"):
+    def __init__(self, page: Page, host: str = "http://localhost:8001"):
         self.page = page
         self.host = host
 
