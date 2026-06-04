@@ -36,20 +36,26 @@ jobs:
         run: |
           pytest tests/features --alluredir=allure-results
 
-      - name: Upload Allure results
+      - name: Install Allure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-jre unzip wget
+          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-commandline.zip
+          unzip allure-commandline.zip -d allure-cli
+          sudo mv allure-cli/allure-*/bin/allure /usr/local/bin/allure
+          allure --version
+
+      - name: Generate Allure Report
+        run: |
+          allure generate allure-results -o allure-report --clean
+
+      - name: Upload Allure Results
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: allure-results
 
-      - name: Generate Allure report
-        uses: simple-elf/allure-report-action@v1.9
-        with:
-          allure_results: allure-results
-          allure_report: allure-report
-          keep_history: false
-
-      - name: Upload Allure report
+      - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
