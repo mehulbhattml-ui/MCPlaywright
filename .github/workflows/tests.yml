@@ -2,7 +2,7 @@ name: Tests with Allure
 
 on:
   push:
-    branches: [ main, firstcomment ]
+    branches: [main, firstcomment]
   pull_request:
 
 jobs:
@@ -28,13 +28,13 @@ jobs:
         run: |
           python -m playwright install --with-deps chromium
 
- #     - name: Run tests with Allure
- #       run: |
- #        pytest --alluredir=allure-results
+      #     - name: Run tests with Allure
+      #       run: |
+      #        pytest --alluredir=allure-results
 
       - name: Run BDD tests with Allure
         run: |
-          pytest tests/features --alluredir=allure-results    
+          pytest tests/features --alluredir=allure-results
 
       - name: Upload Allure results
         uses: actions/upload-artifact@v4
@@ -43,7 +43,7 @@ jobs:
           path: allure-results
 
       - name: Generate Allure report
-        uses: simple-elf/allure-report-action@v1.7
+        uses: simple-elf/allure-report-action@v1.9
         with:
           allure_results: allure-results
           allure_report: allure-report
