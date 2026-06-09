@@ -40,9 +40,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y default-jre unzip wget
-          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-commandline.zip
-          unzip allure-commandline.zip -d allure-cli
-          sudo mv allure-cli/allure-*/bin/allure /usr/local/bin/allure
+          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.42.0/allure-commandline-2.42.0.zip
+          unzip allure-commandline-2.42.0.zip -d allure-cli
+          sudo mv allure-cli/allure-2.42.0/bin/allure /usr/local/bin/allure
           allure --version
 
       - name: Generate Allure Report
