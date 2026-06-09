@@ -23,3 +23,6 @@ env.bak/
 # Allure report output
 allure-results/
 allure-report/
+
+#Ignore a specific file
+pytest.ini

@@ -34,7 +34,7 @@ jobs:
 
       - name: Run BDD tests with Allure
         run: |
-          pytest tests/features --alluredir=allure-results
+          pytest --alluredir=allure-results
 
       - name: Install Allure CLI
         run: |
