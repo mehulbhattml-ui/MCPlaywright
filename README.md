@@ -80,3 +80,18 @@ allure open allure-report
 
 The browser tests use a dedicated POM class at `tests/pages/root_page.py`.
 That keeps UI interactions separate from test assertions and makes the suite easier to extend.
+
+## Allure report Dashboard
+[![Allure Report](https://img.shields.io/badge/Allure-Report-ff69b4?style=for-the-badge)](https://mehulbhattad-ui.github.io/MCPlaywright/)
+
+## Latest CI run status
+![CI](https://github.com/mehulbhattad-ui/MCPlaywright/actions/workflows/tests.yml/badge.svg)
+
+## Browser Tested
+
+![Browsers](https://img.shields.io/badge/Playwright-Chromium%20%7C%20Firefox%20%7C%20WebKit-blue?style=flat-square)
+
+## Parrell run
+
+![Parallel](https://img.shields.io/badge/Parallel%20Tests-Enabled-brightgreen)
+
